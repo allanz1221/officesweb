@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  FormsModule  } from '@angular/Forms';
+import {  FormsModule  } from '@angular/forms';
 import { ServiciosOficinaComponent } from './servicios-oficina/servicios-oficina.component';
 import {MaterialModule} from '../material.module';
 import { AngularFileUploaderModule } from "angular-file-uploader";

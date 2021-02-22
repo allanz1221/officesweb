@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  FormsModule  } from '@angular/Forms';
+import {  FormsModule  } from '@angular/forms';
 
 import {MaterialModule} from '../../material.module'
 import { CreateOfficeRoutingModule } from './create-office-routing.module';
