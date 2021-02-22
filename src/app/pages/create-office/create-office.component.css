@@ -1,0 +1,44 @@
+.contenedor-pagina{
+    text-align: center;
+}
+
+.separar-contenido{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.separar{
+   display: flex;
+   justify-content: space-around;
+    
+}
+
+.separar-item {
+    padding: 20px;
+    text-align: center;
+}
+
+.block{
+    display: block;
+}
+
+.block textarea{
+    min-height: 100px;
+}
+
+
+#map{
+    display: block;
+    height: 400px;
+    
+}
+
+.example-right-align {
+    text-align: right;
+  }
+
+  input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}

@@ -1,0 +1,30 @@
+<div class="contenedor-login fondo-login" *ngIf="!identity">
+    <div class="contenido-login">
+      <div class="contenedor-imagen">
+        
+      </div>
+
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="formulario-login">
+        <h2 class="color-primary">OfficesBNB </h2>
+        <h5>Administra y controla tus oficinas y reservas.</h5>
+        <div class="dividir">
+          <label for="">Email</label>
+          <br>
+          <input  type="text" name="email" #email="ngModel" [(ngModel)]="usuario.email">
+        </div>
+    
+        <div class="dividir">
+          <label for="">Contraseña</label>
+          <br>
+          <input type="password" name="password" #password="ngModel" [(ngModel)]="usuario.password">
+        </div>
+
+        <p class="error" *ngIf="status == 'error' ">El login o la contraseña son incorrectos </p>
+    
+        <input class="btn-submit" type="submit" value="Entrar">
+      </form>
+    </div>
+
+  </div>
+
+

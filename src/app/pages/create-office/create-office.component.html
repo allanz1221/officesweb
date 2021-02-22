@@ -1,0 +1,125 @@
+<div class="contenedor-pagina">
+  <h2>Ingresa los datos de tu oficina</h2>
+
+  <form #oficinasForm="ngForm" (ngSubmit)="onSubmit(oficinasForm)">
+     
+        <p> 
+            <mat-form-field class="block" >
+            <mat-label>Titulo de la oficina</mat-label>
+            <input matInput placeholder="Titulo" type="text" required name="nombre" #nombre="ngModel" [(ngModel)]="oficina.nombre">
+            <mat-error *ngIf="nombre.invalid">No puedes dejar este campo vacio</mat-error>
+            </mat-form-field>
+        </p>
+
+        <p> 
+          <mat-form-field class="block" >
+          <mat-label>Establecimiento</mat-label>
+          <input matInput placeholder="Establecimiento o lugar de la oficina" type="text" required name="establecimiento" #establecimiento="ngModel" [(ngModel)]="oficina.establecimiento">
+          <mat-error *ngIf="establecimiento.invalid">No puedes dejar este campo vacio</mat-error>
+          </mat-form-field>
+      </p>
+
+
+      <div class="separar-contenido">
+        <mat-form-field >
+          <mat-label>Pais</mat-label>
+          <mat-select required name="pais" #pais="ngModel" [(ngModel)]="oficina.pais">
+            <mat-option *ngFor="let pais of paises" [value]="pais.nombre_pais">
+              {{pais.nombre_pais}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="pais.invalid">No puedes dejar este campo vacio</mat-error>
+      </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Ciudad</mat-label>
+            <mat-select required name="ciudad" #ciudad="ngModel" [(ngModel)]="oficina.ciudad">
+              <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.nombre_ciudad">
+                {{ciudad.nombre_ciudad}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="ciudad.invalid">No puedes dejar este campo vacio</mat-error>
+          </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Estado</mat-label>
+            <mat-select required name="estado" #estado="ngModel" [(ngModel)]="oficina.estado">
+              <mat-option *ngFor="let estado of estados" [value]="estado.nombre_estado">
+                {{estado.nombre_estado}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="ciudad.invalid">No puedes dejar este campo vacio</mat-error>
+        </mat-form-field>
+
+       
+      </div>
+
+      <div class="separar">
+        <mat-form-field class="separar-item">
+            <mat-label>Precio por dia</mat-label>
+            <input required class="example-right-align" type="number" matInput name="precio_dia" #precio_dia="ngModel" [(ngModel)]="oficina.precio_dia">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+            <mat-error *ngIf="precio_dia.invalid">No puedes dejar este campo vacio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="separar-item">
+            <mat-label>Precio por hora</mat-label>
+            <input required class="example-right-align" type="number" matInput name="precio_hora" #precio_dia="ngModel" [(ngModel)]="oficina.precio_hora">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+            <mat-error *ngIf="precio_dia.invalid">No puedes dejar este campo vacio</mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="separar">
+        <mat-form-field class="separar-item" *ngIf="identity.role !== 1">
+          <mat-label>Status</mat-label>
+          <mat-select  required name="status" #status="ngModel" [(ngModel)]="oficina.status">
+            <mat-option *ngFor="let status of tiposStatus" [value]="status.value">
+              {{status.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="status.invalid">No puedes dejar este campo vacio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="separar-item" *ngIf="identity.role == 1">
+          <mat-label>Status</mat-label>
+          <mat-select  disabled name="status" #status="ngModel" [(ngModel)]="oficina.status">
+            <mat-option *ngFor="let status of tiposStatus" [value]="status.value">
+              {{status.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="status.invalid">No puedes dejar este campo vacio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="separar-item">
+          <mat-label>Tipo de oficina</mat-label>
+          <mat-select required name="tipo_oficina" #tipo_oficina="ngModel" [(ngModel)]="oficina.tipo_oficina">
+            <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+              {{tipo.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="tipo_oficina.invalid">No puedes dejar este campo vacio</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="block">
+        <mat-label>Descripcion</mat-label>
+        <textarea required matInput name="descripcion" #descripcion="ngModel" [(ngModel)]="oficina.descripcion"></textarea>
+        <mat-error *ngIf="descripcion.invalid">No puedes dejar este campo vacio</mat-error>
+      </mat-form-field>
+
+      <mat-label>Ubicacion de su oficina</mat-label>
+      
+      <div id='map'></div>
+      <input type="hidden" required name="long_ubicacion" id="long_ubicacion" #long_ubicacion="ngModel" [(ngModel)]="oficina.long_ubicacion" >
+      <input type="hidden" required name="lat_ubicacion" id="lat_ubicacion" #lat_ubicacion="ngModel" [(ngModel)]="oficina.lat_ubicacion" >
+     
+      
+      <input type="submit" class="btn" value="Guardar">
+  </form>
+
+  
+</div>

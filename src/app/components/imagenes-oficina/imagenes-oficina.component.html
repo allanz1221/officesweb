@@ -1,0 +1,16 @@
+<h3>Imagenes</h3>
+
+<angular-file-uploader class="upload"
+    [config]="afuConfig"
+    (ApiResponse)="GuardarImagen($event)">
+</angular-file-uploader>
+
+<ul class="listar-imagenes">
+    <li *ngFor="let imagen of imagenes" >
+        <img class="imagenes"  src="{{url + 'oficina/image/' + imagen.nombre_imagen}}" alt="">
+        
+        <span  mat-button (click)="eliminarImagen(imagen.id)" class="material-icons botonEliminar">
+            delete
+        </span>
+    </li>
+</ul>

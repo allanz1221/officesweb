@@ -1,0 +1,97 @@
+<div class="contenedor-oficina" >
+   
+    <div class="contenido-oficina" *ngIf="this.oficina">
+        <h2 class="color-primary">{{oficina.nombre | titlecase}}</h2>
+        <mat-grid-list cols="3" rowHeight="100px">
+            <mat-grid-tile>
+                <p>Ciudad: {{oficina.ciudad}}</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <p>Estado: {{oficina.estado}}</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <p>Pais: {{oficina.pais}}</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <p>Precio por dia: {{oficina.precio_dia}}$</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <p>Precio por hora: {{oficina.precio_hora}}$</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <p>Tipo de oficina: {{oficina.tipo_oficina}}</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile *ngIf="oficina.status == 1">
+                <p>Status: Aceptada</p>
+            </mat-grid-tile>
+
+            <mat-grid-tile *ngIf="oficina.status == 0">
+                <p>Status: No aceptada</p>
+            </mat-grid-tile>
+
+          
+          </mat-grid-list>
+          
+          <label class="descripcion" for="">Descripcion</label>
+          <p>{{oficina.descripcion}}</p>  
+    </div>
+
+    <p class="center">Ubicacion: </p>
+    <div id='map3'></div>
+
+    <div class="" *ngIf="oficina.servicios">
+        <h3 class="center">Servicios</h3>
+        <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let s of oficina.servicios">
+                {{s.nombreServicio}}
+                <mat-divider></mat-divider>
+            </mat-list-item>   
+          </mat-list>
+
+    </div>
+
+    <div *ngIf="oficina.reglas">
+        <h3 class="center">Reglas</h3>
+        <mat-list role="list" >
+            <mat-list-item role="listitem" *ngFor="let r of oficina.reglas">
+                {{r.nombreRegla}}
+                <mat-divider></mat-divider>
+            </mat-list-item>   
+        </mat-list>
+
+        <div *ngIf="oficina.reglas.length == 0">
+            <h4>Esta oficina no tiene asignadas reglas</h4>
+        </div>
+    </div>
+   
+
+    <div>
+        <h3>Imagenes de la oficina</h3>
+
+        <ul class="listar-imagenes">
+            <li *ngFor="let imagen of oficina.imagenes" >
+                <img class="imagenes"  src="{{url + 'oficina/image/' + imagen.nombre_imagen}}" alt="">
+            </li>
+        </ul>
+    </div>
+
+    <form #oficinaForm="ngForm" (ngSubmit)="oficinaForm">
+    <div class="boton-aceptar">
+        <mat-button-toggle-group value="number"  type="button" name="status" #status="ngModel" [(ngModel)]="oficinaEdit.status" >
+            <mat-button-toggle [value]="0">No aceptada</mat-button-toggle>
+            <mat-button-toggle (click)="EditarOficina()" [value]="1">Aceptada</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+   
+    </form>
+ 
+   
+</div>
+
+

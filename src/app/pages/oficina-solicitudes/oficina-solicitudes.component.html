@@ -1,0 +1,29 @@
+<h2>Solicitudes De Oficinas</h2>
+<div>
+    <div class="listar-oficinas" *ngFor="let oficina of oficinas">
+  
+          <img *ngIf="oficina.imagenes[0] == null" src="../../../assets/oficina.jpg" alt="">
+  
+          <img *ngIf="oficina.imagenes[0]" src="{{url + 'oficina/image/' + oficina.imagenes[0].nombre_imagen}}" alt="">
+  
+          <div class="contenido-oficina">
+              <p>{{oficina.nombre | titlecase}}</p>
+              <p>ciudad: {{oficina.ciudad}}</p>
+              <div class="separar">
+                  <mat-chip-list aria-label="Fish selection">
+                      <div *ngIf="oficina.status == 1">
+                          <mat-chip color="primary" selected>Aceptada</mat-chip>
+                      </div>
+                      <div *ngIf="oficina.status == 0">
+                          <mat-chip color="warn" selected>No aceptada</mat-chip>
+                      </div>
+                  </mat-chip-list>
+                  
+                  <div>
+                      <button mat-button color="primary" (click)="mostrarSolicitud(oficina.id)">Ver mas</button>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>

@@ -1,0 +1,24 @@
+<h2>Reglas</h2>
+<div>
+    <form class="formulario-reglas" #reglasForm="ngForm" (ngSubmit)="onSubmit(reglasForm)" >
+        <label for="nombreRegla">Nombre: </label>
+            <input class="texto" type="text" name="nombreRegla" #nombreRegla="ngModel" [(ngModel)]="reglas.nombreRegla">
+        <!--
+            <label for="nombreIcono">nombre del icono: </label>
+            <input type="text" name="nombreIcono" #nombreIcono="ngModel" [(ngModel)]="reglas.nombreIcono" >
+-->
+            <input  type="submit" class="btn" value="Guardar">
+    </form>
+</div>
+
+<div>
+    <ul>
+        <li class=" lista-servicios" *ngFor="let r of regla">
+            {{r.nombreRegla}}
+            <span class="material-icons">
+                {{r.nombreIcono}}
+            </span>
+            <mat-divider></mat-divider>
+        </li>
+    </ul>
+</div>

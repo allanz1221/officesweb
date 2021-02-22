@@ -1,0 +1,59 @@
+
+<div class="" *ngIf="serviciosOficina">
+    <h3 class="center">Servicios</h3>
+    
+        <form #guardarServicioForm="ngForm" (ngSubmit)="crearServicio(guardarServicioForm)">
+            <select name="id_servicio" #id_servicio="ngModel" [(ngModel)]="nuevoServicio.id_servicio">
+                <option default value="">--agregar un servicio--</option>
+                <option *ngFor=" let s of servicios" value="{{s.id}}">{{s.nombreServicio}}</option>
+            </select>
+
+            <button class="btn">Agregar</button>
+        </form>
+      
+
+
+    <mat-list role="list" >
+        <mat-list-item role="listitem" *ngFor="let s of serviciosOficina">
+            <div class="listar">
+                <p>{{s.nombreServicio}}</p>
+
+                <span  mat-button (click)="eliminarServicio(s.id)" class="material-icons botonEliminar">
+                    delete
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list-item>   
+      </mat-list>
+</div><!--Final servicios-->
+
+
+<div *ngIf="reglasOficina">
+    <h3 class="center">Reglas</h3>
+
+    <form #guardarReglaForm="ngForm" (ngSubmit)="crearRegla(guardarReglaForm)">
+        <select name="id_regla" #id_regla="ngModel" [(ngModel)]="nuevoRegla.id_regla">
+            <option value="">--agregar una regla--</option>
+            <option *ngFor="let r of reglas" value="{{r.id}}">{{r.nombreRegla}}</option>
+        </select>
+
+        <button class="btn">Agregar</button>
+    </form>
+    <mat-list role="list" >
+        <mat-list-item role="listitem" *ngFor="let r of reglasOficina">
+            <div class="listar">
+                <p>{{r.nombreRegla}}</p>
+
+                    <span mat-button (click)="eliminarRegla(r.id)" class="material-icons botonEliminar">
+                        delete
+                    </span>
+                
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list-item>   
+    </mat-list>
+
+    <div *ngIf="reglasOficina.length == 0">
+        <h4>Esta oficina no tiene asignadas reglas</h4>
+    </div>
+</div>

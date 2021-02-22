@@ -1,0 +1,23 @@
+<div class="contenedor-oficina">
+    <h2>Reservaciones</h2>
+
+    <div class="listar-reservas" *ngFor="let reserva of reservas">
+
+        <img *ngIf="reserva.oficina.imagenes[0] == null" src="../../../assets/oficina.jpg" alt="">
+
+        <img *ngIf="reserva.oficina.imagenes[0]" src="{{url + 'oficina/image/' + reserva.oficina.imagenes[0].nombre_imagen}}" alt="">
+
+        <div class="contenido-reserva">
+            <div class="separar">
+                <p>Oficina: <span>{{reserva.oficina.nombre | titlecase}}</span></p>
+                <p>Cliente: <span>{{reserva.usuario.nombre | titlecase}} {{reserva.usuario.apellidos | titlecase}}</span></p>
+            </div>
+            <div class="separar">
+                <p>Fechas: <span *ngIf="reserva.fechaInicio != null">{{reserva.fechaInicio}} a {{reserva.fechaFinal}}</span>
+                            <span *ngIf="reserva.diaReserva != null">{{reserva.diaReserva}} de {{reserva.horaInicio | date: 'HH'}}:00 a {{reserva.horaFinal | date: 'HH'}}:00</span> </p>
+                <p>Total <span>{{reserva.total | currency}}$</span></p>   
+            </div> 
+            <button mat-button color="primary" (click)="mostrarOficina(reserva.id)">Ver mas</button>
+        </div>
+    </div>
+</div>

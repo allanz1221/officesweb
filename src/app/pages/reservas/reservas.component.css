@@ -1,0 +1,23 @@
+img{
+    max-width: 100px;
+    min-width: 250px;
+}
+
+.listar-reservas{
+    display: flex;
+    margin: 30px
+}
+
+.contenido-reserva
+{
+    padding: 20px;
+}
+
+p{
+    font-weight: bold;
+}
+
+span{
+    font-weight: 500;
+    text-decoration: underline;
+}

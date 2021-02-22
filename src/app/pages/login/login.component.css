@@ -1,0 +1,87 @@
+html{
+    margin: 0  !important;
+}
+
+img{
+    max-width: 100%;
+   min-height: 100%;
+    
+}
+
+.contenedor-imagen
+{
+    min-height: 100%;
+    background: url(../../../assets/imagen-login.jpg);
+    background-position: center center; 
+    background-size: cover;
+    min-height: 600px;
+   
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    flex-basis: calc(70% - 1rem);
+
+}
+.contenido-login
+{
+    display: flex;
+    align-items: center;
+    max-height: 600px;
+    max-width: 1000px;
+    
+    margin: 80px auto;
+
+   border-radius: 10%;
+    background-color: white;
+    
+}
+
+.formulario-login{
+    text-align: center;
+    margin-left: 15px;
+    flex-basis: calc(25% - 1rem);
+}
+
+.dividir{
+    margin: 30px;
+}
+
+.block{
+    display: block;
+}
+
+.contenedor-login
+{
+   
+   min-width: 100vh;
+   min-height: 100%;
+   padding: 25px 25px 0px 25px;
+   
+    
+}
+
+.btn-submit{
+    font-weight: bold;
+    min-width: 100%;
+    padding: 10px;
+    background-color: rgb(51, 51, 155);
+    color: white;
+}
+
+.btn-submit:hover{
+    background-color: rgb(82, 82, 155);
+    color: white;;
+}
+
+.error
+{
+    font-size: 14px;
+    color: red;
+}
+
+
+.formulario-login input{
+    border-radius: 5px;
+    padding: 7px;
+}
+
+

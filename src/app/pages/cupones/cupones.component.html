@@ -1,0 +1,29 @@
+<h2>Cupones</h2>
+<form class="formulario-servicios" #cuponForm="ngForm" (ngSubmit)="onSubmit(cuponForm)">
+    <label for="nombreCupon">Nombre del cupon</label>
+    <input type="text" name="nombreCupon" #nombreCupon="ngModel" [(ngModel)]="cupones.nombreCupon">
+
+    <label for="cantidad">Cantidad</label>
+    <input type="number" name="cantidad" #cantidad="ngModel" [(ngModel)]="cupones.cantidad">
+
+    <input type="submit" class="btn" value="Guadar">
+
+</form>
+
+<div>
+    <ul>
+        <li class="contenedor-cupon" *ngFor="let c of cupon"> 
+            <div class="contenido-cupon">
+                <div>
+                    <p> <span class="texto">Nombre del cupon:</span> {{c.nombreCupon}}</p>
+                    <p> <span class="texto">Descuento de:</span> {{c.cantidad}}$</p>
+                </div>
+
+                <span mat-button  class="material-icons botonEliminar">
+                    delete
+                </span>
+            </div>
+            
+        </li>
+    </ul>
+</div>

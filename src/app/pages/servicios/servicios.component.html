@@ -1,0 +1,29 @@
+<div class="contenedor">
+    <h2>Servicios</h2>
+    <div>
+        <form class="formulario-servicios" #serviciosForm="ngForm" (ngSubmit)="onSubmit(serviciosForm)">
+            <label for="nombreServicio">Nombre: </label>
+            <input type="text" name="nombreServicio" #nombreServicio="ngModel" [(ngModel)]="servicios.nombreServicio">
+
+            <label for="nombreIcono">nombre del icono: </label>
+            <input type="text" name="nombreIcono" #nombreIcono="ngModel" [(ngModel)]="servicios.nombreIcono" >
+
+            <input type="submit" class="btn" value="Guardar">
+        </form>
+    </div>
+
+    <div>
+        <ul>
+            <li class="lista-servicios" *ngFor="let ser of servicio">
+                {{ser.nombreServicio}}
+                <span class="material-icons">
+                    {{ser.nombreIcono}}
+                </span>
+                <mat-divider></mat-divider>
+            </li>
+            
+        </ul>
+    </div>
+
+    
+</div>

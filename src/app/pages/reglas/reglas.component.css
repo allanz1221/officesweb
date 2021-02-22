@@ -1,0 +1,23 @@
+.reglas{
+    display: flex;
+    align-items: center;
+}
+
+.formulario-reglas{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+
+.formulario-reglas input{
+    max-height: 40px;
+  }
+
+  .formulario-reglas .texto
+  {
+      min-width: 400px;
+  }
+  
+  .formulario-reglas label{
+    font-weight: bold;
+  }

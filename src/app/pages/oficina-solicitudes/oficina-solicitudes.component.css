@@ -1,0 +1,23 @@
+img{
+    max-width: 100px;
+}
+
+.listar-oficinas
+{
+    display: flex;
+    margin-bottom: 20px;
+    
+}
+
+
+.contenido-oficina {
+    
+    padding: 15px;
+    min-width: 700px;
+}   
+
+.separar
+{
+    display: flex;
+    justify-content: space-between;
+}
